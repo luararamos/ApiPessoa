@@ -12,12 +12,25 @@ public class PessoaModel
 
     public string? Email {get; private set; }
 
-    public PessoaModel(string nome, string cnpj, string telefone, string email 
+    public bool Ativo {get; private set; }
+
+    public PessoaModel(string nome, string cnpj, string telefone, string email, bool ativo 
     ){
         Nome = nome;
         Cnpj = cnpj; 
         Telefone = telefone; 
         Email = email;
         Id = Guid.NewGuid();
+        Ativo = true;
+    }
+
+    public void MudarNome(string nome)
+    {
+        Nome = nome;
+    }
+
+    public void Desativar()
+    {
+        Ativo = false;
     }
 }
